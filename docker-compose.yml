@@ -8,15 +8,17 @@ services:
   api:
     container_name: bobarr-api
     build:
-      context: ./api
+      context: .
+      dockerfile: Dockerfile.api
     ports:
       - 4000:4000
     restart: unless-stopped
 
   web:
     container_name: bobarr-web
-     build:
-      context: ./web
+    build:
+      context: .
+      dockerfile: Dockerfile.web
     ports:
       - 3000:3000
     restart: unless-stopped
