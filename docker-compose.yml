@@ -10,7 +10,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
-    network: host
+    network_mode: host
     ports:
       - 4000:4000
     restart: unless-stopped
@@ -20,7 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.web
-    network: host
+    network_mode: host
     ports:
       - 3000:3000
     restart: unless-stopped
