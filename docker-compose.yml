@@ -10,6 +10,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
+    network: host
     ports:
       - 4000:4000
     restart: unless-stopped
@@ -19,6 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.web
+    network: host
     ports:
       - 3000:3000
     restart: unless-stopped
@@ -26,6 +28,7 @@ services:
   postgres:
     container_name: bobarr-postgresql
     image: postgres:12-alpine
+    network: host
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
@@ -33,6 +36,7 @@ services:
   redis:
     container_name: bobarr-redis
     image: redis:5-alpine
+    network: host
     volumes:
       - redis_data:/data
     restart: unless-stopped
