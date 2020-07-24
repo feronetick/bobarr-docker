@@ -1,0 +1,38 @@
+version: "2"
+
+volumes:
+  redis_data:
+  postgres_data:
+
+services:
+  api:
+    container_name: bobarr-api
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - 4000:4000
+    restart: unless-stopped
+
+  web:
+    container_name: bobarr-web
+     build:
+      context: .
+      dockerfile: Dockerfile.web
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+
+  postgres:
+    container_name: bobarr-postgresql
+    image: postgres:12-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    container_name: bobarr-redis
+    image: redis:5-alpine
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
