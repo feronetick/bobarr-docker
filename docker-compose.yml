@@ -28,7 +28,7 @@ services:
   postgres:
     container_name: bobarr-postgresql
     image: postgres:12-alpine
-    network: host
+    network_mode: host
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
@@ -36,7 +36,7 @@ services:
   redis:
     container_name: bobarr-redis
     image: redis:5-alpine
-    network: host
+    network_mode: host
     volumes:
       - redis_data:/data
     restart: unless-stopped
