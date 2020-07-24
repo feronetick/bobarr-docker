@@ -1,10 +1,10 @@
 FROM node:current-alpine
 
-WORKDIR /srv/api
+WORKDIR /srv
 
 RUN \
   apk add subversion && \
-  svn checkout https://github.com/iam4x/bobarr/trunk/packages/api /srv && \
+  svn checkout https://github.com/iam4x/bobarr/trunk/packages/api /sr && \
   yarn && \
   yarn build
 
