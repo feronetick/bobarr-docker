@@ -11,6 +11,8 @@ services:
       context: .
       dockerfile: Dockerfile.api
     network_mode: host
+    volumes:
+      - ./library:/usr/library
     ports:
       - 4000:4000
     restart: unless-stopped
@@ -24,7 +26,6 @@ services:
     ports:
       - 3000:3000
     restart: unless-stopped
-
   postgres:
     container_name: bobarr-postgresql
     image: postgres:12-alpine

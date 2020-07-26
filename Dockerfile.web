@@ -4,7 +4,7 @@ WORKDIR /srv
 
 RUN \
   apk add subversion && \
-  svn checkout https://github.com/iam4x/bobarr/trunk/packages/web /srv && \
+  svn checkout https://github.com/feronetick/bobarr/trunk/packages/web /srv && \
   yarn install --network-timeout 100000 && \
   yarn build
 
